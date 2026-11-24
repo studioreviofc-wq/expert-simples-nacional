@@ -908,6 +908,56 @@ main::before{opacity:1}
 /* foto do professor */
 .teacher-photo{min-height:0!important;background:none!important;border:0!important;border-radius:0;overflow:visible;align-self:center}
 .teacher-photo img{display:block;width:100%;height:auto;max-width:480px;margin:0 auto;filter:drop-shadow(0 30px 60px rgba(0,119,221,.28))}
+
+/* ===== escala tipográfica revisada (textos maiores, hierarquia mantida) ===== */
+body .p,body .intro-copy p,body .offer .p,body .offer .offer-guar .p,body .teacher-copy p,body .ba-title + * p{font-size:1.1875rem;line-height:1.65}
+body .hero .lead{font-size:1.375rem;line-height:1.6}
+body .t-role{font-size:1.1875rem}
+body .bento .card p,body .bcard p,body .path-card p,body .ba-cell,body .tcard blockquote,body .qa-body p,body .support p,body .b-cert p,body .b-update p{font-size:1.125rem;line-height:1.6}
+body .incl li{font-size:1.0625rem}
+body .mod-body li{font-size:1.0625rem}
+body .mod-title{font-size:1.125rem}
+body .mod-title small{font-size:.8rem}
+body .qa-btn{font-size:1.125rem}
+body .bento .card h3{font-size:1.3125rem}
+body .bcard h3{font-size:clamp(1.3rem,1.9vw,1.6rem)}
+body .path-card h3{font-size:1.5rem}
+body .support h3{font-size:1.2rem}
+body .tcard figcaption b{font-size:1rem}
+body .trust li{font-size:1rem}
+body .t-stats span{font-size:.95rem}
+body .price-inst{font-size:1.0625rem}
+body .price-label{font-size:1rem}
+body .price-chips span{font-size:.875rem}
+body .price-seals div{font-size:.82rem}
+body .price-timer p{font-size:.95rem}
+body .path-foot p{font-size:1.0625rem}
+body .pill{font-size:.8rem}
+body .pc-tag{font-size:.78rem}
+body .btag{font-size:.82rem}
+body .incl-title,body .ba-label{font-size:.85rem}
+body .b-update .year small{font-size:.92rem}
+body .legal{font-size:.9rem}
+body .footer nav{font-size:.95rem}
+body .hero h1{font-size:clamp(1.9rem,4.5vw,3.625rem)}
+.br-m{display:none}
+@media (min-width:761px) and (max-width:1080px){body .hero h1{font-size:2.5rem}body .hero .lead{font-size:1.25rem}}
+@media (max-width:760px){
+  body{font-size:16.5px}
+  body .p,body .intro-copy p,body .offer .p,body .offer .offer-guar .p,body .teacher-copy p,body .t-role{font-size:1.0625rem}
+  body .hero .lead{font-size:1.125rem}
+  body .bento .card p,body .bcard p,body .path-card p,body .ba-cell,body .tcard blockquote,body .qa-body p,body .support p,body .b-cert p,body .b-update p{font-size:1.03rem}
+  body .incl li,body .mod-body li{font-size:1rem}
+  body .mod-title{font-size:1.03rem}
+  body .qa-btn{font-size:1.03rem}
+  body .bento .card h3{font-size:1.2rem}
+  body .path-card h3{font-size:1.3rem}
+  body .trust li{font-size:.92rem}
+  body .price-seals div{font-size:.78rem}
+  body .b-update .year small{font-size:.7rem}
+  body .hero h1{font-size:clamp(1.85rem,9.6vw,2.25rem);line-height:1.12}
+  .br-m{display:inline}
+}
 </style>
 </head>
 <body>
@@ -939,7 +989,7 @@ main::before{opacity:1}
     <div class="hero-grid">
       <div class="hero-copy">
         <img class="brand-logo hero-logo" src="imgs/logotipo.svg" alt="Formação Expert em Simples Nacional" width="152" height="63">
-        <h1 class="h1">Torne-se um <span class="hl">Expert&nbsp;em Simples&nbsp;Nacional</span></h1>
+        <h1 class="h1">Torne-se um<br class="br-m"> <span class="hl">Expert&nbsp;em<br class="br-m"> Simples&nbsp;Nacional</span></h1>
         <p class="lead">Esteja preparado para atender qualquer cliente do Simples Nacional, <strong>agora e na Reforma Tributária</strong>, na formação mais completa e prática do mercado.</p>
         <div class="hero-cta">
           <a href="#oferta" class="btn">Garantir a minha vaga <i data-lucide="arrow-right"></i></a>
