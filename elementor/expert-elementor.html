@@ -901,7 +901,10 @@ html {scroll-padding-top:100px}
 #esn .legal {font-size:14.4px}
 #esn .footer nav {font-size:15.2px}
 #esn .hero h1 {font-size:clamp(30.4px,4.5vw,58px)}
-#esn .br-m {display:inline}
+#esn .hero h1 .b2 {display:none}
+#esn .hero h1.h1-2l .b3 {display:none}
+#esn .hero h1.h1-2l .b2 {display:inline}
+#esn .hero h1.h1-2l {white-space:nowrap}
 @media (min-width:761px) and (max-width:1080px) {
 #esn .hero h1 {font-size:40px}
 #esn .hero .lead {font-size:20px}
@@ -920,7 +923,6 @@ html {scroll-padding-top:100px}
 #esn .price-seals div {font-size:12.48px}
 #esn .b-update .year small {font-size:11.2px}
 #esn .hero h1 {font-size:clamp(29.6px,9.6vw,36px);line-height:1.12}
-#esn .br-m {display:inline}
 }
 #esn .price-anchor {font-size:16px;color:#B8C7DC;margin-bottom:6px}
 #esn .price-anchor s {color:#F87171;font-weight:700;text-decoration-thickness:2px}
@@ -981,7 +983,7 @@ html {scroll-padding-top:100px}
     <div class="hero-grid">
       <div class="hero-copy">
         <img class="brand-logo hero-logo" src="https://academiaelitefiscal.com.br/wp-content/uploads/2026/11/logotipo.svg" alt="Formação Expert em Simples Nacional" width="152" height="63">
-        <h1 class="h1">Torne-se um<br class="br-m"> <span class="hl">Expert&nbsp;em<br class="br-m"> Simples&nbsp;Nacional</span></h1>
+        <h1 class="h1">Torne-se um<br class="b3"> <span class="hl">Expert<br class="b2"> em<br class="b3"> Simples&nbsp;Nacional</span></h1>
         <p class="lead">Esteja preparado para atender qualquer cliente do Simples Nacional, <strong>agora e na Reforma Tributária</strong>, na formação mais completa e prática do mercado.</p>
         <div class="hero-cta">
           <a href="#oferta" class="btn">Garantir a minha vaga <i data-lucide="arrow-right"></i></a>
@@ -1469,6 +1471,19 @@ const WHATSAPP_URL = 'https://wa.me/558597196635?text=Ol%C3%A1%2C%20tudo%20bem%3
 
 root.querySelectorAll('[data-checkout]').forEach(a => a.href = CHECKOUT_URL);
 root.querySelectorAll('[data-whatsapp]').forEach(a => a.href = WHATSAPP_URL);
+
+/* H1 do hero: 3 linhas; em telas baixas (desktop) em que o botão sumiria, volta para 2 linhas */
+(() => {
+  const h1 = root.querySelector('.hero h1'), btn = root.querySelector('.hero-cta .btn');
+  if (!h1 || !btn) return;
+  const fit = () => {
+    h1.classList.remove('h1-2l');
+    if (innerWidth < 1081) return;
+    if (btn.getBoundingClientRect().bottom + scrollY > innerHeight - 16) h1.classList.add('h1-2l');
+  };
+  fit(); addEventListener('resize', fit);
+  if (document.fonts) document.fonts.ready.then(fit);
+})();
 
 if (window.lucide) lucide.createIcons({ attrs: { 'stroke-width': 1.75 } });
 
