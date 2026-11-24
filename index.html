@@ -684,6 +684,14 @@ h1,h2,h3{font-weight:700;letter-spacing:-.025em;line-height:1.08}
   .hero-copy{padding:calc(clamp(28px,4vw,72px) + 40px) 0 56px}
   .hero .lead{font-size:1.2875rem;max-width:18.5em;text-wrap:balance}
   .hero-visual{display:none}
+  .hero-grid{grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr)}
+}
+/* telas de notebook baixas: hero compacto, botão sempre visível */
+@media (min-width:1081px) and (max-height:820px){
+  .hero-copy{padding:36px 0 40px}
+  .hero .hero-logo{width:170px;margin-bottom:22px}
+  body .hero h1{font-size:clamp(1.9rem,3.6vw,3.25rem);margin-bottom:18px}
+  body .hero .lead{font-size:1.25rem;line-height:1.55;margin-bottom:26px}
 }
 /* ---------- responsive ---------- */
 @media (max-width:1080px){
