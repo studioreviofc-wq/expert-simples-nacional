@@ -31,8 +31,8 @@
   --grad:linear-gradient(135deg,#0077DD 0%,#0EA5E9 55%,#23B5F8 100%);
   --gradText:linear-gradient(100deg,#23B5F8 0%,#38BDF8 40%,#0EA5E9 100%);
   --r-sm:12px; --r:20px; --r-lg:28px; --r-xl:36px;
-  --wrap:1200px;
-  --gut:24px;
+  --wrap:1140px;
+  --gut:clamp(24px,6vw,96px);
   --ease:cubic-bezier(.2,.7,.2,1);
   --noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
@@ -48,7 +48,7 @@ ul{list-style:none}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 section{position:relative}
 /* divisórias entre seções: linha fina com destaque alternando o lado */
-.ba::after,.curr::after,.path::after,.bonus::after,.benef::after,.offer::after,.teacher::after,.test::after{content:"";position:absolute;bottom:70px;left:max(24px,calc((100% - 1200px) / 2));right:max(24px,calc((100% - 1200px) / 2));height:2px;pointer-events:none;
+.ba::after,.curr::after,.path::after,.bonus::after,.benef::after,.offer::after,.teacher::after,.test::after{content:"";position:absolute;bottom:70px;left:max(var(--gut),calc((100% - 1140px) / 2));right:max(var(--gut),calc((100% - 1140px) / 2));height:2px;pointer-events:none;
   background:linear-gradient(90deg,#0EA5E9,#38BDF8) left center/28% 2px no-repeat,linear-gradient(rgba(140,185,255,.13),rgba(140,185,255,.13)) 0 50%/100% 1px no-repeat}
 .curr::after,.bonus::after,.offer::after,.test::after{background:linear-gradient(90deg,#38BDF8,#0EA5E9) right center/28% 2px no-repeat,linear-gradient(rgba(140,185,255,.13),rgba(140,185,255,.13)) 0 50%/100% 1px no-repeat}
 
@@ -990,6 +990,8 @@ body .offer .incl-title{font-size:1.2rem;letter-spacing:.12em;margin:30px 0 10px
   .calc-total div{font-size:.95rem}
   .calc-bar{font-size:1rem;padding:16px}
 }
+
+.curr-aside .curr-cta-d{max-width:100%;font-size:.95rem;white-space:normal;text-wrap:balance;text-align:center;line-height:1.3;padding-block:12px}
 </style>
 </head>
 <body>
@@ -1818,7 +1820,7 @@ if (window.matchMedia('(hover: none)').matches) {
     const T=innerWidth<=760?180:280, W=main.offsetWidth, H=main.offsetHeight;
     const x0=(W/2+T/2)%T; // padrão centralizado: cruzamentos em x0 + k*T
     const cols=Math.floor((W-x0)/T), rows=Math.floor(H/T);
-    const half=600, gL=W/2-half-30, gR=W/2+half+30;
+    const half=570, gL=W/2-half-30, gR=W/2+half+30;
     const xs=[]; for(let x=x0;x<=W;x+=T) xs.push(x);
     const left=xs.filter(x=>x<gL), right=xs.filter(x=>x>gR);
     if(!left.length&&!right.length) return;
