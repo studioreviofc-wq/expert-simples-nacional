@@ -138,8 +138,18 @@ def build_css(css):
 def build_js(js):
     js = re.sub(r'\bdocument\.querySelector(All)?\(', r'root.querySelector\1(', js)
     assert 'documentElement' not in js and 'getElementById' not in js
+    # Temas e contêineres do Elementor costumam ter overflow:hidden, que desliga o position:sticky
+    # (barra do topo e coluna fixa da grade). Trocar hidden por clip corta igual e mantém o sticky.
+    unclip = (
+        "  const unclip = () => { for (let el = root.parentElement; el; el = el.parentElement) {\n"
+        "    const c = getComputedStyle(el);\n"
+        "    if (c.overflowX === 'hidden') el.style.setProperty('overflow-x', 'clip', 'important');\n"
+        "    if (c.overflowY === 'hidden') el.style.setProperty('overflow-y', 'clip', 'important');\n"
+        "  } };\n"
+        "  unclip(); addEventListener('load', unclip);\n"
+    )
     return ("(function(){\n  const root = document.getElementById('esn');\n  if (!root) return;\n"
-            + js + "\n})();")
+            + unclip + js + "\n})();")
 
 
 # ------------------------------------------------------------------ HTML

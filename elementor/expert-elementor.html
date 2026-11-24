@@ -1456,6 +1456,12 @@ html {scroll-padding-top:100px}
 (function(){
   const root = document.getElementById('esn');
   if (!root) return;
+  const unclip = () => { for (let el = root.parentElement; el; el = el.parentElement) {
+    const c = getComputedStyle(el);
+    if (c.overflowX === 'hidden') el.style.setProperty('overflow-x', 'clip', 'important');
+    if (c.overflowY === 'hidden') el.style.setProperty('overflow-y', 'clip', 'important');
+  } };
+  unclip(); addEventListener('load', unclip);
 
 /* Destinos dos botões: preencher com os links reais */
 const CHECKOUT_URL = 'https://pay.hub.la/WnGIclD2SxouY3UWGKdH';
