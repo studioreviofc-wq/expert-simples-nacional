@@ -958,6 +958,15 @@ body .hero h1{font-size:clamp(1.9rem,4.5vw,3.625rem)}
   body .hero h1{font-size:clamp(1.85rem,9.6vw,2.25rem);line-height:1.12}
   .br-m{display:inline}
 }
+
+/* ancoragem do preço */
+.price-anchor{font-size:1rem;color:#B8C7DC;margin-bottom:6px}
+.price-anchor s{color:#F87171;font-weight:700;text-decoration-thickness:2px}
+.price-x{margin-top:14px;font-size:1.35rem;font-weight:700;color:#fff;line-height:1}
+body .price-value{margin:4px 0 6px}
+body .price-inst{margin-bottom:22px}
+.price-cash{margin-top:14px;font-size:1rem;color:#B8C7DC}
+.price-cash b{color:#fff}
 </style>
 </head>
 <body>
@@ -1321,10 +1330,13 @@ body .hero h1{font-size:clamp(1.9rem,4.5vw,3.625rem)}
           <span class="price-band" aria-hidden="true"></span>
           <div class="price-core">
             <img class="brand-logo price-logo" src="imgs/logotipo.svg" alt="Formação Expert em Simples Nacional" width="152" height="63">
-            <div class="price-label">À vista no PIX ou boleto</div>
-            <div class="price-value"><small>R$</small><span>397</span><em>,00</em></div>
-            <p class="price-inst">ou em até <b>12x de R$ [parcela]</b> no cartão</p>
-            <a href="#" class="btn btn-wide" data-checkout>Quero meu acesso agora <i data-lucide="arrow-right"></i></a>
+            <p class="price-anchor">Acesso por 7 anos: <s>R$ 9.716</s></p>
+            <div class="price-label">Hoje, com acesso vitalício, por apenas</div>
+            <div class="price-x">12x de</div>
+            <div class="price-value"><small>R$</small><span>41</span><em>,06</em></div>
+            <p class="price-inst">no cartão de crédito</p>
+            <a href="https://pay.hub.la/WnGIclD2SxouY3UWGKdH" class="btn btn-wide" data-checkout target="_blank" rel="noopener">Quero meu acesso agora <i data-lucide="arrow-right"></i></a>
+            <p class="price-cash">ou <b>R$ 397,00</b> à vista no PIX ou boleto</p>
             <div class="price-chips"><span><i data-lucide="chevron-right"></i>Acesso imediato</span><span><i data-lucide="chevron-right"></i>Atualizações até 2033</span></div>
             <div class="price-seals">
               <div><i data-lucide="shield-check"></i><span>Compra<br>segura</span></div>
@@ -1456,7 +1468,7 @@ body .hero h1{font-size:clamp(1.9rem,4.5vw,3.625rem)}
 <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
 <script>
 /* Destinos dos botões: preencher com os links reais */
-const CHECKOUT_URL = '#';
+const CHECKOUT_URL = 'https://pay.hub.la/WnGIclD2SxouY3UWGKdH';
 const WHATSAPP_URL = '#';
 
 document.querySelectorAll('[data-checkout]').forEach(a => a.href = CHECKOUT_URL);
