@@ -968,6 +968,28 @@ body .price-value span{font-size:clamp(4.6rem,8vw,6.6rem)}
 body .price-inst{margin-bottom:22px}
 .price-cash{margin-top:14px;font-size:1rem;color:#B8C7DC}
 .price-cash b{color:#fff}
+
+/* cálculo de ancoragem (oferta) */
+body .offer .incl-title{font-size:1.2rem;letter-spacing:.12em;margin:30px 0 10px}
+.calc-sub{margin:-6px 0 18px;font-size:1.0625rem;color:#B8C7DC}
+.incl.calc li{align-items:center}
+.incl.calc .ci-t{flex:1;min-width:0}
+.incl.calc .ci-p{flex:none;margin-left:12px;font-weight:700;color:#fff;font-size:1.0625rem;white-space:nowrap}
+.incl.calc .ci-p small{font-weight:400;font-size:.78em;color:#94A3B8}
+.incl.calc .ci-ok{font-style:normal;font-weight:700;color:#34D399}
+.calc-total{margin-top:22px;padding-top:18px;border-top:1px solid rgba(140,185,255,.14);display:grid;gap:10px}
+.calc-total div{display:flex;align-items:baseline;justify-content:space-between;gap:12px;color:#B8C7DC;font-size:1.0625rem}
+.calc-total b{font-size:1.25rem;color:#fff}
+.calc-total s{font-size:1.25rem;font-weight:700;color:#F87171;text-decoration-thickness:2px}
+.calc-bar{margin-top:20px;padding:18px 22px;border-radius:16px;text-align:center;font-size:1.125rem;font-weight:600;color:#fff;background:linear-gradient(135deg,#0369A1 0%,#0062C4 55%,#0077DD 100%);border:1px solid rgba(125,211,252,.4);box-shadow:0 14px 34px -14px rgba(0,119,221,.8),inset 0 1px 0 rgba(255,255,255,.18)}
+.calc-bar b{font-weight:800}
+@media (max-width:760px){
+  .incl.calc li{flex-wrap:wrap;row-gap:4px}
+  .incl.calc .ci-t{flex:1 1 calc(100% - 40px)}
+  .incl.calc .ci-p{margin-left:37px}
+  .calc-total div{font-size:.95rem}
+  .calc-bar{font-size:1rem;padding:16px}
+}
 </style>
 </head>
 <body>
@@ -1314,17 +1336,20 @@ body .price-inst{margin-bottom:22px}
         <div>
           <span class="pill">Condição atual de inscrição · até 26/11</span>
           <h2 class="h2">Esse é o momento para se tornar <span class="hl">Expert em Simples Nacional.</span></h2>
-          <p class="p">Entre agora na Formação Expert e tenha um caminho completo para estudar, consultar e aplicar o Simples Nacional, hoje e na Reforma Tributária, na realidade de cada cliente.</p>
-          <div class="incl-title">O QUE ESTÁ INCLUSO</div>
-          <ul class="incl">
-            <li><i data-lucide="chevron-right"></i><span><b>Formação completa</b>, módulo por módulo, da base do Simples Nacional à Reforma Tributária</span></li>
-            <li><i data-lucide="chevron-right"></i><span><b>Bônus:</b> planilha do Simples CBS convencional x híbrido</span></li>
-            <li><i data-lucide="chevron-right"></i><span><b>Bônus:</b> checklist de simulação Simples convencional x híbrido</span></li>
-            <li><i data-lucide="chevron-right"></i><span><b>Bônus:</b> Masterclass de Recuperação Tributária</span></li>
-            <li><i data-lucide="chevron-right"></i><span><b>Suporte</b> para tirar dúvidas dentro da plataforma, com a equipe de especialistas</span></li>
-            <li><i data-lucide="chevron-right"></i><span><b>Acesso vitalício</b> ao curso, com atualizações sobre a Reforma Tributária no Simples Nacional garantidas até 2033</span></li>
-            <li><i data-lucide="chevron-right"></i><span><b>7 dias de garantia</b> incondicional</span></li>
+          <div class="incl-title">QUANTO ISSO CUSTARIA POR ANO</div>
+          <p class="calc-sub">Valores de referência, cobrados anualmente</p>
+          <ul class="incl calc">
+            <li><i data-lucide="chevron-right"></i><span class="ci-t"><b>Formação Expert em Simples Nacional completa</b> + suporte para tirar dúvidas dentro da plataforma, com a equipe de especialistas</span><span class="ci-p">R$ 997 <small>/ano</small></span></li>
+            <li><i data-lucide="chevron-right"></i><span class="ci-t"><b>Bônus:</b> planilha do Simples CBS convencional x híbrido</span><span class="ci-p">R$ 47 <small>/ano</small></span></li>
+            <li><i data-lucide="chevron-right"></i><span class="ci-t"><b>Bônus:</b> checklist de simulação Simples convencional x híbrido</span><span class="ci-p">R$ 47 <small>/ano</small></span></li>
+            <li><i data-lucide="chevron-right"></i><span class="ci-t"><b>Bônus:</b> Masterclass de Recuperação Tributária</span><span class="ci-p">R$ 297 <small>/ano</small></span></li>
+            <li><i data-lucide="chevron-right"></i><span class="ci-t"><b>7 dias de garantia</b> incondicional</span><span class="ci-p"><em class="ci-ok">Sem risco</em></span></li>
           </ul>
+          <div class="calc-total">
+            <div><span>Total por ano</span><b>R$ 1.388</b></div>
+            <div><span>Até 2033 (7 anos): R$ 1.388 × 7</span><s>R$ 9.716</s></div>
+          </div>
+          <div class="calc-bar">Com acesso vitalício, você paga <b>12x de R$ 41,06</b></div>
         </div>
         <div class="price">
           <span class="price-notch" aria-hidden="true"><i data-lucide="chevron-down"></i></span>
